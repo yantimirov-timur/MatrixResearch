@@ -11,9 +11,23 @@ repositories {
     mavenCentral()
 }
 
+tasks.create<Jar>("fatJar"){
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes(mapOf("Main-Class" to "RunnerKt")) // replace it with your own
+    }
+    val sourceMain = sourceSets.main.get()
+    from(sourceMain.output)
+
+    configurations.runtimeClasspath.get().filter {
+        it.name.endsWith(".jar")
+    }.forEach { jar ->
+        from(zipTree(jar))
+    }
+}
+
 dependencies {
     testImplementation(kotlin("test"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.9")
 }
 
 tasks.test {

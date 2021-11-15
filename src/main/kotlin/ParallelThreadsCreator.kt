@@ -2,7 +2,8 @@ object ParallelThreadsCreator {
     fun multiply(
         matrixA: Array<Array<Int>>,
         matrixB: Array<Array<Int>>,
-        result: Array<Array<Int>>
+        result: Array<Array<Int>>,
+        numThreads:Int
     ): Array<Array<Int>> {
         val threads = mutableListOf<Thread>()
         val rows1 = matrixA.size
@@ -11,8 +12,8 @@ object ParallelThreadsCreator {
             val thread = Thread(task)
             thread.start()
             threads.add(thread)
-            val foo = Runtime.getRuntime().availableProcessors()
-            if (threads.size % 10 == 0) {
+
+            if (threads.size % numThreads == 0) {
                 waitForThreads(threads)
             }
         }

@@ -1,6 +1,6 @@
 import matrix.MatrixBuilder
 import multiplication.MatrixMultiplier
-import java.util.*
+import java.util.Date
 
 fun main(args: Array<String>) {
     val start = Date().time
@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
 
     when (args[0]) {
         "-m" -> {
-            ParallelThreadsCreator.multiply(matrixA, matrixB, res)
+            ParallelThreadsCreator.multiply(matrixA, matrixB, res, args[2].toInt())
             println("Mode: Multi thread")
         }
         "-t" -> {
@@ -26,8 +26,8 @@ fun main(args: Array<String>) {
     val end = Date().time
     val diff = (end - start)
 
-
-
-    println("Size of matrix: $matrixSize")
     println("Elapsed milliseconds: $diff")
+    println("Num of threads: ${args[2]}")
+    println("Size of matrix: $matrixSize")
+
 }
