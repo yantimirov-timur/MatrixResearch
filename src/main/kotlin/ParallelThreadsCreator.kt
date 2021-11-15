@@ -1,18 +1,19 @@
+import multiplication.MatrixMultiplierParallel
+
 object ParallelThreadsCreator {
     fun multiply(
         matrixA: Array<Array<Int>>,
         matrixB: Array<Array<Int>>,
         result: Array<Array<Int>>,
-        numThreads:Int
+        numThreads: Int
     ): Array<Array<Int>> {
         val threads = mutableListOf<Thread>()
         val rows1 = matrixA.size
         for (i in 0 until rows1) {
-            val task = RowMultiplierWorker(result, matrixA, matrixB, i)
+            val task = MatrixMultiplierParallel(result, matrixA, matrixB, i)
             val thread = Thread(task)
             thread.start()
             threads.add(thread)
-
             if (threads.size % numThreads == 0) {
                 waitForThreads(threads)
             }

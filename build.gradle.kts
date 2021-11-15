@@ -11,27 +11,14 @@ repositories {
     mavenCentral()
 }
 
-tasks.create<Jar>("fatJar"){
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-    manifest {
-        attributes(mapOf("Main-Class" to "RunnerKt")) // replace it with your own
-    }
-    val sourceMain = sourceSets.main.get()
-    from(sourceMain.output)
-
-    configurations.runtimeClasspath.get().filter {
-        it.name.endsWith(".jar")
-    }.forEach { jar ->
-        from(zipTree(jar))
-    }
-}
 
 dependencies {
+    implementation("org.junit.jupiter:junit-jupiter:5.7.0")
     testImplementation(kotlin("test"))
 }
 
 tasks.test {
-    useJUnit()
+    useJUnitPlatform()
 }
 
 tasks.withType<KotlinCompile>() {

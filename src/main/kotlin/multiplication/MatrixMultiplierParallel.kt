@@ -1,4 +1,6 @@
-class RowMultiplierWorker(
+package multiplication
+
+class MatrixMultiplierParallel(
     private val result: Array<Array<Int>>,
     private val matrixA: Array<Array<Int>>,
     private val matrixB: Array<Array<Int>>,
