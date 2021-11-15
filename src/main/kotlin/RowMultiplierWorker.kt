@@ -1,8 +1,8 @@
 class RowMultiplierWorker(
-    val result: Array<Array<Int>>,
-    val matrixA: Array<Array<Int>>,
-    val matrixB: Array<Array<Int>>,
-    val row: Int
+    private val result: Array<Array<Int>>,
+    private val matrixA: Array<Array<Int>>,
+    private val matrixB: Array<Array<Int>>,
+    private val row: Int
 ) : Runnable {
     override fun run() {
         for (i in 0 until matrixB[0].size) {
