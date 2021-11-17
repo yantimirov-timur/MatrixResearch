@@ -1,3 +1,5 @@
+package multiplication
+
 import kotlinx.coroutines.*
 
 fun multiplyRows(

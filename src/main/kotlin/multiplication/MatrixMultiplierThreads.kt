@@ -1,6 +1,6 @@
 package multiplication
 
-class MatrixMultiplierParallel(
+class MatrixMultiplierThreads(
     private val result: Array<Array<Int>>,
     private val matrixA: Array<Array<Int>>,
     private val matrixB: Array<Array<Int>>,

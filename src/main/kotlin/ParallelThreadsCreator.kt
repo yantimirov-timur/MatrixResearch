@@ -1,5 +1,4 @@
-import multiplication.MatrixMultiplierParallel
-import kotlin.concurrent.thread
+import multiplication.MatrixMultiplierThreads
 
 object ParallelThreadsCreator {
     fun multiply(
@@ -11,7 +10,7 @@ object ParallelThreadsCreator {
         val threads = mutableListOf<Thread>()
         val rows1 = matrixA.size
         for (i in 0 until rows1) {
-            val task = MatrixMultiplierParallel(result, matrixA, matrixB, i)
+            val task = MatrixMultiplierThreads(result, matrixA, matrixB, i)
             val thread = Thread(task)
             thread.start()
             threads.add(thread)

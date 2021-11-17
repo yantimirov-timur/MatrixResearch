@@ -1,5 +1,6 @@
 import matrix.MatrixBuilder
 import multiplication.MatrixMultiplier
+import multiplication.multiplyConcurrently
 import java.util.Date
 
 suspend fun main(args: Array<String>) {
