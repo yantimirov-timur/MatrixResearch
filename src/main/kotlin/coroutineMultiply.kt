@@ -1,7 +1,4 @@
 import kotlinx.coroutines.*
-import matrix.MatrixBuilder
-import java.util.Date
-
 
 fun multiplyRows(
     result: Array<Array<Int>>,
@@ -32,13 +29,3 @@ suspend fun multiplyConcurrently(
     }
 }
 
-suspend fun main() {
-    val start = Date().time
-    val size = 1000
-    val m1 = MatrixBuilder(size, size).buildMatrix(10)
-    val m2 = MatrixBuilder(size, size).buildMatrix(10)
-    val r = MatrixBuilder(size, size).buildMatrix(0)
-    multiplyConcurrently(m1, m2, r)
-    val end = Date().time
-    println(end - start)
-}

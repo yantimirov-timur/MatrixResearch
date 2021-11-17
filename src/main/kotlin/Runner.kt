@@ -2,7 +2,7 @@ import matrix.MatrixBuilder
 import multiplication.MatrixMultiplier
 import java.util.Date
 
-fun main(args: Array<String>) {
+suspend fun main(args: Array<String>) {
     val start = Date().time
     val matrixNumRange = 10
     val matrixSize = args[1].toInt()
@@ -19,6 +19,10 @@ fun main(args: Array<String>) {
             MatrixMultiplier().multiply(matrixA, matrixB)
             println("Mode: One thread")
         }
+        "-c" -> {
+            multiplyConcurrently(matrixA, matrixB, res)
+        }
+
         else -> println("Unknown operation")
     }
 
