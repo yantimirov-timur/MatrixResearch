@@ -24,7 +24,7 @@ suspend fun multiplyConcurrently(
 ) = coroutineScope {
     val rows = matrixA.size
     for (i in 0 until rows) {
-        launch {
+        launch(Dispatchers.Default) {
             multiplyRows(result, matrixA, matrixB, i)
         }
 

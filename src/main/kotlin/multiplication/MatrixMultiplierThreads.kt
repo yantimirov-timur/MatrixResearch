@@ -6,6 +6,9 @@ class MatrixMultiplierThreads(
     private val matrixB: Array<Array<Int>>,
     private val row: Int
 ) : Runnable {
+    /**
+     * Multithreading multiply
+     */
     override fun run() {
         for (i in 0 until matrixB[0].size) {
             result[row][i] = 0

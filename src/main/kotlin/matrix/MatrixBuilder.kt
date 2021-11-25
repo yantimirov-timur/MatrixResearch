@@ -2,7 +2,11 @@ package matrix
 
 import kotlin.random.Random
 
+
 class MatrixBuilder(override val height: Int, override val width: Int) : Matrix {
+    /**
+     * Build matrix with random integers
+     */
     fun buildMatrix(matrixNumRange: Int): Array<Array<Int>> {
         val matrix = Array(height) { Array(width) { 0 } }
         for (i in 0 until width) {

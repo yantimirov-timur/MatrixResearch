@@ -1,9 +1,10 @@
 package multiplication
-
-
 import matrix.MatrixBuilder
 
 class MatrixMultiplier {
+    /**
+     * Single thread multiply
+     */
     fun multiply(matrixA: Array<Array<Int>>, matrixB: Array<Array<Int>>): Array<Array<Int>> {
         val sizeA = matrixA.size
         val sizeB = matrixB.size
