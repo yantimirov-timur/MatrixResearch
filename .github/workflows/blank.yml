@@ -5,12 +5,12 @@
 
 name: Java CI
 
+
 on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 11
@@ -20,7 +20,7 @@ jobs:
           distribution: 'adopt'
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
+      - name: chmod permissions
+        run: chmod +x ./gradlew
       - name: Build with Gradle
-      name: chmod permissions
-      command: chmod +x ./gradlew
         run: ./gradlew build
