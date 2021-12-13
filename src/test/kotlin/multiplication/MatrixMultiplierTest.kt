@@ -19,7 +19,7 @@ internal class MatrixMultiplierTest {
     @Test
     fun multiply() {
         val expectedResult = Array(3) { Array(3) { 0 } }
-        val fillNum = 9
+        val fillNum = 1
         fillMatrix(fillNum, expectedResult.size, expectedResult)
         val res = MatrixMultiplier().multiply(matrix1, matrix2)
         assertArrayEquals(expectedResult, res)
